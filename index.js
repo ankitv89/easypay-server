@@ -9,7 +9,7 @@ app.post("/payment/generatelink", (req, res) => {
   try {
     const response = easypay.generatePayload(
       payload,
-      process.env.environment === "prod" ? false : false
+      process.env.environment === "prod" ? false : true
     );
     res.status(200).send(response);
   } catch (err) {
