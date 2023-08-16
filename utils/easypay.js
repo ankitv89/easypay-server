@@ -1,6 +1,6 @@
 const crypto = require("crypto");
 
-//const { v4: uuidv4 } = require("uuid");   //ENABLE if using sample payload
+const { v4: uuidv4 } = require("uuid");   
 
 /*
 AES Encrytion function
@@ -73,6 +73,10 @@ const samplePayload = {
     debugParams["receivedPayload"] = JSON.stringify(payload);
   }
 
+ //if reference no is blank 
+ if(payload.mandatoryFields.referenceNo.length<1){
+    payload.mandatoryFields.referenceNo = uuidv4()
+ }
   Object.keys(payload.mandatoryFields).map(function (item) {
     if (payload.mandatoryFields[item].length > 0)
       mandatoryFields = mandatoryFields + payload.mandatoryFields[item] + "|";
@@ -85,13 +89,13 @@ const samplePayload = {
   }
 
   const queryJson = {
-    "mandatory fields": mandatoryFields,
-    "optional fields": " ",
-    returnurl: payload.returnUrl,
-    "Reference No": payload.mandatoryFields.referenceNo,
-    submerchantid: payload.mandatoryFields.submerchantId,
-    "transaction amount": payload.mandatoryFields.transactionAmount,
-    paymode: payload.paymode,
+    "mandatory%20fields": mandatoryFields,
+    "optional%20fields": "",
+    "returnurl": payload.returnUrl,
+    "Reference%20No": payload.mandatoryFields.referenceNo,
+    "submerchantid": payload.mandatoryFields.submerchantId,
+    "transaction%20amount": payload.mandatoryFields.transactionAmount,
+    "paymode": payload.paymode,
   };
   if (debug) {
     console.info("Prepared Query[Plain]- " + JSON.stringify(queryJson) + "\n");
@@ -102,7 +106,7 @@ const samplePayload = {
     merchantid: payload.merchantId,
   };
   Object.keys(queryJson).map(function (item) {
-    encryptedValuesJSON[item] = encrypt(queryJson[item], payload.secret);
+    encryptedValuesJSON[item] = queryJson[item].length>0 ? encrypt(queryJson[item], payload.secret) : "";
   });
 
   if (debug) {

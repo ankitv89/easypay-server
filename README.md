@@ -90,3 +90,4 @@ To change port set PORT envionment variable. Default is 3231
 
  - AES key should be 16 characters ling
  - Blank values are changes to space during encryption of mandatory fields
+ - To Autogenerate referenceNo, send it as blank in mandatory params. it will autogenerate aa uuid as reference number
