@@ -1,4 +1,4 @@
-# ICICI Easypay Server
+# Easypay Server
 
 Service to manage easypay payment gateway in NodeJS
 
@@ -18,7 +18,7 @@ Debug mode will return debug params in response and print the same in server log
 curl --location 'http://localhost:3231/payment/generatelink' \
 --header 'Content-Type: application/json' \
 --data '{
-    "endpoint": "https://eazypayuat.icicibank.com/EazyPG",
+    "endpoint": "https://eazypayuat.BANK_NAME.com/EazyPG",
     "returnUrl": "return url",
     "paymode": "9",
     "secret": "Key",
@@ -51,7 +51,7 @@ curl --location 'http://localhost:3231/payment/generatelink' \
 Code 200
 ```
 {
-    "redirectUrl": "https://eazypayuat.icicibank.com/EazyPG?merchantid=id&mandatory fields=GD6qPybO6CTqf8OqcpJirz6UwGQtKH9Hs6LE8HHq4QQQhQyzML7+OczdbKvFFCwP&optional fields=DfRolnrNM01y6GU9ViXXOg==&returnurl=YPqx8aX9fg2pXPVMSlECMA==&Reference No=R3VSvzGOieNSnztjb+rnaQ==&submerchantid=atnZN6M1s1HndtJxnaaN7g==&transaction amount=TyndAlLVBDO0z1GlMt0d4w==&paymode=cejzc223qVtvZvj+hQcypw==",
+    "redirectUrl": "https://eazypayuat.BANK_NAME.com/EazyPG?merchantid=id&mandatory fields=GD6qPybO6CTqf8OqcpJirz6UwGQtKH9Hs6LE8HHq4QQQhQyzML7+OczdbKvFFCwP&optional fields=DfRolnrNM01y6GU9ViXXOg==&returnurl=YPqx8aX9fg2pXPVMSlECMA==&Reference No=R3VSvzGOieNSnztjb+rnaQ==&submerchantid=atnZN6M1s1HndtJxnaaN7g==&transaction amount=TyndAlLVBDO0z1GlMt0d4w==&paymode=cejzc223qVtvZvj+hQcypw==",
     "referenceNo": "456789",
     "debug": {
         "receivedPayload": "{\"endpoint\":\"https://eazypayuat.icicibank.com/EazyPG\",\"returnUrl\":\"return url\",\"paymode\":\"9\",\"secret\":\"1111111111111111\",\"merchantId\":\"id\",\"mandatoryFields\":{\"referenceNo\":\"456789\",\"submerchantId\":\"45\",\"transactionAmount\":\"10\",\"invoiceId\":\"\",\"invoiceDate\":\"\",\"invoiceTime\":\"\",\"merchantId\":\"\",\"payerType\":\"\",\"payerId\":\"\",\"transactionId\":\"\",\"transactionDate\":\"\",\"transactionTime\":\"\",\"transactionStatus\":\"\",\"refundId\":\"\",\"refundDate\":\"\",\"refundTime\":\"\",\"refundStatus\":\"\"},\"optionalFields\":\"\"}",
@@ -67,7 +67,7 @@ Code 200
 Code 200
 ```
 {
-    "redirectUrl": "https://eazypayuat.icicibank.com/EazyPG?merchantid=id&mandatory fields=GD6qPybO6CTqf8OqcpJirz6UwGQtKH9Hs6LE8HHq4QQQhQyzML7+OczdbKvFFCwP&optional fields=DfRolnrNM01y6GU9ViXXOg==&returnurl=YPqx8aX9fg2pXPVMSlECMA==&Reference No=R3VSvzGOieNSnztjb+rnaQ==&submerchantid=atnZN6M1s1HndtJxnaaN7g==&transaction amount=TyndAlLVBDO0z1GlMt0d4w==&paymode=cejzc223qVtvZvj+hQcypw==",
+    "redirectUrl": "https://eazypayuat.BANK_NAME.com/EazyPG?merchantid=id&mandatory fields=GD6qPybO6CTqf8OqcpJirz6UwGQtKH9Hs6LE8HHq4QQQhQyzML7+OczdbKvFFCwP&optional fields=DfRolnrNM01y6GU9ViXXOg==&returnurl=YPqx8aX9fg2pXPVMSlECMA==&Reference No=R3VSvzGOieNSnztjb+rnaQ==&submerchantid=atnZN6M1s1HndtJxnaaN7g==&transaction amount=TyndAlLVBDO0z1GlMt0d4w==&paymode=cejzc223qVtvZvj+hQcypw==",
     "referenceNo": "456789",
     "debug": {}
 }
